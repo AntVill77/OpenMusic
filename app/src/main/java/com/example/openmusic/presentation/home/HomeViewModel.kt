@@ -11,39 +11,24 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getSongsUseCase: GetSongsUseCase
+    private val getSongs: GetSongsUseCase
 ) : ViewModel() {
 
-    private val _state =
-        MutableStateFlow(HomeState())
-
-    val state =
-        _state.asStateFlow()
+    private val _state = MutableStateFlow(HomeState())
+    val state = _state.asStateFlow()
 
     init {
-
         loadSongs()
-
     }
 
     private fun loadSongs() {
-
         viewModelScope.launch {
-
-            _state.value =
-                _state.value.copy(
-                    loading = true
-                )
-
-            val songs =
-                getSongsUseCase()
-
-            _state.value =
-                HomeState(
-                    songs = songs,
-                    loading = false
-                )
-
+            _state.value = _state.value.copy(loading = true)
+            val songs = getSongs()
+            _state.value = _state.value.copy(
+                songs = songs,
+                loading = false
+            )
         }
     }
 }

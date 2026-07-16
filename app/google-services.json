@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "178279068780",
+    "project_id": "openmusic-d5dec",
+    "storage_bucket": "openmusic-d5dec.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178279068780:android:45537e2c2764dbf12ed449",
+        "android_client_info": {
+          "package_name": "com.example.openmusic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSdTF1A8Iksf0eIzkG8b3zosuJ0Ka_iEw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

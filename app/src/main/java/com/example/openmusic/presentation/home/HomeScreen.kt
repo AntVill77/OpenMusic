@@ -1,8 +1,11 @@
 package com.example.openmusic.presentation.home
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
@@ -17,6 +20,7 @@ fun HomeScreen(
 ) {
 
     LazyColumn(modifier = Modifier.padding(16.dp)
+        .statusBarsPadding()
         .fillMaxSize(),
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Top) {
@@ -26,6 +30,7 @@ fun HomeScreen(
         ) { song ->
 
             SongCard(song)
+            Spacer(modifier = Modifier.height(16.dp))
 
         }
 
