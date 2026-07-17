@@ -2,6 +2,7 @@ package com.example.openmusic.feature.player.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.openmusic.domain.model.Song
 import com.example.openmusic.feature.player.domain.usecase.ObservePlayerStateUseCase
 import com.example.openmusic.feature.player.domain.usecase.PlaySongUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -30,9 +31,9 @@ class PlayerViewModel @Inject constructor(
 
         )
 
-    suspend fun play(songId: String) {
+    suspend fun play(song: Song) {
 
-        playSong(songId)
+        playSong(song)
 
     }
 

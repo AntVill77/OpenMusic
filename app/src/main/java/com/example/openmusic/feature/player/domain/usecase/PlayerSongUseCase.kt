@@ -1,5 +1,6 @@
 package com.example.openmusic.feature.player.domain.usecase
 
+import com.example.openmusic.domain.model.Song
 import com.example.openmusic.feature.player.domain.PlayerController
 import javax.inject.Inject
 
@@ -11,10 +12,10 @@ class PlaySongUseCase
 ) {
 
     suspend operator fun invoke(
-        songId: String
+        song: Song
     ) {
 
-        controller.play(songId)
+        controller.play(song)
 
     }
 
