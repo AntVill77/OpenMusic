@@ -2,11 +2,12 @@ package com.example.openmusic.data.repository
 
 import com.example.openmusic.core.network.firebase.FirebaseAuthService
 import com.example.openmusic.presentation.register.AuthUser
+import com.google.firebase.auth.FirebaseAuth
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
 
-    private val service: FirebaseAuthService
+    private val service: FirebaseAuthService,
 
 ) : AuthRepository {
 
@@ -42,7 +43,9 @@ class AuthRepositoryImpl @Inject constructor(
     }
 
     override fun currentUser(): AuthUser? {
-        TODO("Not yet implemented")
+
+        return service.currentUser()
+
     }
 
 }

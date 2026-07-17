@@ -7,9 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.example.openmusic.presentation.home.HomeScreen
-import com.example.openmusic.presentation.home.HomeViewModel
-import com.example.openmusic.presentation.navigation.OpenMusicNavigation
+import androidx.navigation.compose.rememberNavController
+import com.example.openmusic.presentation.screens.HomeScreen
+import com.example.openmusic.domain.viewmodel.HomeViewModel
+import com.example.openmusic.navigation.AppNavHost
 import com.example.openmusic.ui.theme.OpenMusicTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,10 +21,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             OpenMusicTheme {
-                   // OpenMusicNavigation()
-                val viewModel: HomeViewModel = hiltViewModel()
-                val state by viewModel.state.collectAsStateWithLifecycle()
-                HomeScreen(state = state)
+                val navController = rememberNavController()
+
+                AppNavHost(navController)
             }
         }
     }

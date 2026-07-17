@@ -1,4 +1,4 @@
-package com.example.openmusic.presentation.home
+package com.example.openmusic.presentation.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Spacer
@@ -13,10 +13,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.openmusic.core.ui.SongCard
+import com.example.openmusic.domain.model.Song
+import com.example.openmusic.presentation.home.HomeState
 
 @Composable
 fun HomeScreen(
-    state: HomeState
+    state: HomeState,
+    onSongClick: (Song) -> Unit
 ) {
 
     LazyColumn(modifier = Modifier.padding(16.dp)

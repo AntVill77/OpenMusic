@@ -46,7 +46,17 @@ class FirebaseAuthServiceImpl @Inject constructor(
     }
 
     override fun currentUser(): AuthUser? {
-        TODO("Not yet implemented")
+
+            val user = auth.currentUser ?: return null
+
+            return AuthUser(
+
+                uid = user.uid,
+
+                email = user.email
+
+            )
+
     }
 
 }
