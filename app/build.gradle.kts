@@ -57,14 +57,16 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.hilt.navigation.compose)
-    implementation(platform("com.google.firebase:firebase-bom:34.16.0"))
+    implementation(platform(libs.firebase.bom))
     implementation("com.google.firebase:firebase-analytics")
 
+    implementation("com.google.firebase:firebase-auth-ktx:23.1.0")
     implementation("com.firebaseui:firebase-ui-auth:9.0.0")
 
     implementation("com.google.firebase:firebase-firestore")
 
     implementation("com.google.firebase:firebase-storage")
+    implementation(libs.androidx.work.runtime.ktx)
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.10.1")
 
@@ -96,6 +98,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.startup.runtime)
     implementation(libs.timber)
+
+    implementation("androidx.hilt:hilt-work:1.2.0")
+    ksp("androidx.hilt:hilt-compiler:1.2.0")
 
 
     testImplementation(libs.junit)

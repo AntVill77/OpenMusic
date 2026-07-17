@@ -25,9 +25,7 @@ fun HomeScreen(
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Top) {
 
-        items(
-            state.songs
-        ) { song ->
+        items(state.songs) { song ->
 
             SongCard(song)
             Spacer(modifier = Modifier.height(16.dp))
