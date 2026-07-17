@@ -3,7 +3,7 @@ package com.example.openmusic.domain.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.openmusic.domain.usecase.ObserveSongsUseCase
-import com.example.openmusic.presentation.home.HomeState
+import com.example.openmusic.feature.home.HomeState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

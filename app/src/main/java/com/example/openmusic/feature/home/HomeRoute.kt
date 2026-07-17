@@ -1,4 +1,4 @@
-package com.example.openmusic.presentation.home
+package com.example.openmusic.feature.home
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue

@@ -1,4 +1,4 @@
-package com.example.openmusic.presentation.detail
+package com.example.openmusic.feature.detail
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder

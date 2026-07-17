@@ -5,8 +5,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.example.openmusic.navigation.navigation.authGraph
 import com.example.openmusic.navigation.navigation.splashGraph
-import com.example.openmusic.presentation.detail.detailGraph
-import com.example.openmusic.presentation.home.homeGraph
+import com.example.openmusic.feature.detail.detailGraph
+import com.example.openmusic.feature.home.homeGraph
 
 
 @Composable

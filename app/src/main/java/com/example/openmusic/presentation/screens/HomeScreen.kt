@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.openmusic.core.ui.SongCard
 import com.example.openmusic.domain.model.Song
-import com.example.openmusic.presentation.home.HomeState
+import com.example.openmusic.feature.home.HomeState
 
 @Composable
 fun HomeScreen(

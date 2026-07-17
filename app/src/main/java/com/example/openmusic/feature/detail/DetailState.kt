@@ -1,4 +1,4 @@
-package com.example.openmusic.presentation.detail
+package com.example.openmusic.feature.detail
 
 import com.example.openmusic.domain.model.Song
 

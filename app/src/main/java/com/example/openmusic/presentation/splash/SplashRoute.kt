@@ -5,6 +5,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.openmusic.core.sesion.SessionState
 import com.example.openmusic.presentation.screens.SplashScreen
 
 @Composable
@@ -20,17 +21,19 @@ fun SplashRoute(
 
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    LaunchedEffect(state.destination) {
+    LaunchedEffect(state){
 
-        when (state.destination) {
+        when(state){
 
-            SplashDestination.Home ->
-                navigateHome()
+            SessionState.Loading -> Unit
 
-            SplashDestination.Login ->
+            SessionState.Unauthenticated ->
+
                 navigateLogin()
 
-            SplashDestination.None -> Unit
+            is SessionState.Authenticated ->
+
+                navigateHome()
 
         }
 
