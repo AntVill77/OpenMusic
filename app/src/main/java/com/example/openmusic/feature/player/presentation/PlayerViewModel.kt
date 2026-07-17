@@ -2,38 +2,74 @@ package com.example.openmusic.feature.player.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.openmusic.domain.model.Song
+import com.example.openmusic.feature.player.domain.PlayerController
 import com.example.openmusic.feature.player.domain.usecase.ObservePlayerStateUseCase
 import com.example.openmusic.feature.player.domain.usecase.PlaySongUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class PlayerViewModel @Inject constructor(
 
-    observePlayerState: ObservePlayerStateUseCase,
+    observePlayerStateUseCase: ObservePlayerStateUseCase,
 
-    private val playSong: PlaySongUseCase
+    private val playSongUseCase: PlaySongUseCase,
+
+    private val playerController: PlayerController
 
 ) : ViewModel() {
 
-    val state = observePlayerState()
+    val state = observePlayerStateUseCase()
 
         .stateIn(
 
-            viewModelScope,
+            scope = viewModelScope,
 
-            SharingStarted.WhileSubscribed(5000),
+            started = SharingStarted.WhileSubscribed(5000),
 
-            PlayerUiState()
+            initialValue = PlayerUiState()
 
         )
+    fun onEvent(event: PlayerEvent) {
 
-    suspend fun play(song: Song) {
+        when (event) {
 
-        playSong(song)
+            is PlayerEvent.Play -> {
+
+                viewModelScope.launch {
+                    playSongUseCase(event.song)
+                }
+
+            }
+
+            PlayerEvent.Pause -> {
+
+                playerController.pause()
+
+            }
+
+            PlayerEvent.Resume -> {
+
+                playerController.resume()
+
+            }
+
+            PlayerEvent.Stop -> {
+
+                playerController.stop()
+
+            }
+
+            is PlayerEvent.SeekTo -> {
+
+                playerController.seekTo(event.position)
+
+            }
+
+        }
 
     }
 

@@ -17,6 +17,8 @@ data class PlayerUiState(
 
     val currentPosition: Long = 0,
 
-    val bufferedPosition: Long = 0
+    val bufferedPosition: Long = 0,
+
+    val isBuffering: Boolean = false
 
 )

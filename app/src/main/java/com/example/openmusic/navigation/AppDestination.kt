@@ -23,4 +23,6 @@ sealed class AppDestination(
 
     }
 
+    object Player :
+        AppDestination("player")
 }
